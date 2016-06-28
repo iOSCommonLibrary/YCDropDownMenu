@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  Item1ViewController.h
 //  YCDropDownMenu
 //
 //  Created by xiaochong on 16/6/26.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface Item1ViewController : UIViewController
 
 
 @end

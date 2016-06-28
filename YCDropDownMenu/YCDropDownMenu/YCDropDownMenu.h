@@ -13,14 +13,21 @@
 @protocol YCDropDownMenuDelegate <NSObject>
 
 @optional
+
 - (void)dropDownMenu:(YCDropDownMenu *)menu didClickedText:(NSString *)text;
+
+- (void)dropDownMenuDidClickMenu:(YCDropDownMenu *)menu;
 
 @end
 
 @interface YCDropDownMenu : UIView
 
+/**
+ *  下拉显示的数据
+ */
 @property (nonatomic,strong) NSArray *lists;
-//-----------------------------------------左边标题
+
+//-----------------------------------------------------------左边标题
 /**
  *  左边的标题
  */
@@ -34,7 +41,7 @@
  */
 @property (nonatomic,strong) UIColor *leftTitleColor;
 
-//-----------------------------------------中间内容
+//-----------------------------------------------------------中间内容
 /**
  *  中间的内容的字体大小
  */
@@ -48,10 +55,25 @@
  */
 @property (nonatomic,copy) NSString *currtentContent;
 
+
 /**
  *  代理
  */
 @property (nonatomic,weak) id<YCDropDownMenuDelegate> delegate;
 
+/**
+ *   下拉菜单的宽度
+ */
+@property (nonatomic,assign) CGFloat listTableViewWidth;
+
+/**
+ *  自动显示和隐藏下拉列表
+ */
+- (void)autoHideOrDisplay;
+
+/**
+ *  是否向下
+ */
+@property (nonatomic,assign,readonly) BOOL arrowIsDown;
 
 @end

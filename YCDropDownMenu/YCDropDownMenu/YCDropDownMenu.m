@@ -25,9 +25,12 @@
 
 @property (nonatomic,strong) UITableView *listTableView;
 
-@property (nonatomic,assign) BOOL arrowIsDown;
-
 @property (nonatomic,assign) CGRect newF;
+
+/**
+ *  菜单的superView
+ */
+@property (nonatomic,strong) UIView *menuSuperView;
 
 @property (nonatomic,strong) UIView *cover;
 
@@ -70,7 +73,7 @@
     self.rightView = rightView;
     
     // 给右边的整体的父控件添加一个手势
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMenu)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMenu:)];
     [rightView addGestureRecognizer:tap];
     
     // 添加向下的箭头
@@ -85,22 +88,36 @@
     [self addSubview:contentLabel];
     self.contentLabel = contentLabel;
     
-    self.arrowIsDown = YES;
+    _arrowIsDown = YES;
 
     // 设置自己的背景
     self.backgroundColor = [UIColor whiteColor];
     
 }
+
 /**
  *  转圈并显示或隐藏listTableView
  */
-- (void)tapMenu {
+- (void)tapMenu:(UITapGestureRecognizer *)tap {
+    
+    // 优先调用代理方法
+    if ([self.delegate respondsToSelector:@selector(dropDownMenuDidClickMenu:)]) {
+        [self.delegate dropDownMenuDidClickMenu:self];
+    }
+    
+    [self autoHideOrDisplay];
+
+}
+
+- (void)autoHideOrDisplay {
     if (self.arrowIsDown) {
         [UIView animateWithDuration:0.3 animations:^{
             self.iconView.transform = CGAffineTransformMakeRotation(M_PI);
             self.listTableView.frame = CGRectMake(self.newF.origin.x, CGRectGetMaxY(self.newF), self.newF.size.width, self.lists.count >= MaxDisplayRows ? self.newF.size.height * MaxDisplayRows : self.newF.size.height * self.lists.count);
             // 添加一个遮盖，点击这个遮盖可以隐藏listTableView
             self.cover = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            self.cover.backgroundColor = [UIColor lightGrayColor];
+            self.cover.alpha = 0.5;
             [self.cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenListTableView)]];
             [self.superview insertSubview:self.cover atIndex:0];
         }];
@@ -111,12 +128,23 @@
             [self.cover removeFromSuperview];
         }];
     }
+    
     // 修改箭头的状态
-    self.arrowIsDown = !self.arrowIsDown;
+    _arrowIsDown = !self.arrowIsDown;
 }
 
+/**
+ *  点击了遮盖
+ */
 - (void)hiddenListTableView {
-    [self tapMenu];
+    for (UIView *subView in self.menuSuperView.subviews) {
+        if([subView isKindOfClass:[YCDropDownMenu class]]) {
+            YCDropDownMenu *menu = (YCDropDownMenu *)subView;
+            if (menu.arrowIsDown == NO) {
+                [menu autoHideOrDisplay];
+            }
+        }
+    }
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
@@ -156,8 +184,17 @@
     
     // 设置tableView的位置
     [newSuperview addSubview:self.listTableView];
-    [self.rightView layoutIfNeeded];
+    
+    // 记录父View
+    self.menuSuperView = newSuperview;
+    
+    // 强制更新布局
+    [self layoutIfNeeded];
     CGRect newF = [newSuperview convertRect:self.rightView.frame fromView:self];
+    if (self.listTableViewWidth != 0) {
+        newF.size.width = self.listTableViewWidth;
+        newF.origin.x = 0;
+    }
     self.listTableView.frame = CGRectMake(newF.origin.x, CGRectGetMaxY(newF), newF.size.width, 0);
     self.newF = newF;
     
@@ -229,7 +266,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     self.currtentContent = cell.textLabel.text;
     self.contentLabel.text = cell.textLabel.text;
-    [self tapMenu];
+    [self autoHideOrDisplay];
     
     // 通知代理
     if ([self.delegate respondsToSelector:@selector(dropDownMenu:didClickedText:)]) {

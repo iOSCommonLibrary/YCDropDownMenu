@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2BD71F71D22616400DAC218 /* Item2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD71F61D22616400DAC218 /* Item2ViewController.m */; };
+		D2BD71FA1D22618D00DAC218 /* Item3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD71F91D22618D00DAC218 /* Item3ViewController.m */; };
+		D2BD71FC1D22790000DAC218 /* display.gif in Resources */ = {isa = PBXBuildFile; fileRef = D2BD71FB1D22790000DAC218 /* display.gif */; };
 		D2CA05AA1D1F9C4B00819527 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CA05A91D1F9C4B00819527 /* main.m */; };
 		D2CA05AD1D1F9C4B00819527 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CA05AC1D1F9C4B00819527 /* AppDelegate.m */; };
-		D2CA05B01D1F9C4B00819527 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CA05AF1D1F9C4B00819527 /* ViewController.m */; };
+		D2CA05B01D1F9C4B00819527 /* Item1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CA05AF1D1F9C4B00819527 /* Item1ViewController.m */; };
 		D2CA05B31D1F9C4B00819527 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CA05B11D1F9C4B00819527 /* Main.storyboard */; };
 		D2CA05B51D1F9C4B00819527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CA05B41D1F9C4B00819527 /* Assets.xcassets */; };
 		D2CA05B81D1F9C4B00819527 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CA05B61D1F9C4B00819527 /* LaunchScreen.storyboard */; };
@@ -19,12 +22,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D2BD71F51D22616400DAC218 /* Item2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item2ViewController.h; sourceTree = "<group>"; };
+		D2BD71F61D22616400DAC218 /* Item2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item2ViewController.m; sourceTree = "<group>"; };
+		D2BD71F81D22618D00DAC218 /* Item3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item3ViewController.h; sourceTree = "<group>"; };
+		D2BD71F91D22618D00DAC218 /* Item3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item3ViewController.m; sourceTree = "<group>"; };
+		D2BD71FB1D22790000DAC218 /* display.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = display.gif; sourceTree = "<group>"; };
 		D2CA05A51D1F9C4B00819527 /* YCDropDownMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YCDropDownMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CA05A91D1F9C4B00819527 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D2CA05AB1D1F9C4B00819527 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D2CA05AC1D1F9C4B00819527 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D2CA05AE1D1F9C4B00819527 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D2CA05AF1D1F9C4B00819527 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D2CA05AE1D1F9C4B00819527 /* Item1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Item1ViewController.h; sourceTree = "<group>"; };
+		D2CA05AF1D1F9C4B00819527 /* Item1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Item1ViewController.m; sourceTree = "<group>"; };
 		D2CA05B21D1F9C4B00819527 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2CA05B41D1F9C4B00819527 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2CA05B71D1F9C4B00819527 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,11 +74,16 @@
 		D2CA05A71D1F9C4B00819527 /* YCDropDownMenu */ = {
 			isa = PBXGroup;
 			children = (
+				D2BD71FB1D22790000DAC218 /* display.gif */,
 				D2CA05BF1D1F9C6200819527 /* YCDropDownMenu */,
 				D2CA05AB1D1F9C4B00819527 /* AppDelegate.h */,
 				D2CA05AC1D1F9C4B00819527 /* AppDelegate.m */,
-				D2CA05AE1D1F9C4B00819527 /* ViewController.h */,
-				D2CA05AF1D1F9C4B00819527 /* ViewController.m */,
+				D2CA05AE1D1F9C4B00819527 /* Item1ViewController.h */,
+				D2CA05AF1D1F9C4B00819527 /* Item1ViewController.m */,
+				D2BD71F51D22616400DAC218 /* Item2ViewController.h */,
+				D2BD71F61D22616400DAC218 /* Item2ViewController.m */,
+				D2BD71F81D22618D00DAC218 /* Item3ViewController.h */,
+				D2BD71F91D22618D00DAC218 /* Item3ViewController.m */,
 				D2CA05B11D1F9C4B00819527 /* Main.storyboard */,
 				D2CA05B41D1F9C4B00819527 /* Assets.xcassets */,
 				D2CA05B61D1F9C4B00819527 /* LaunchScreen.storyboard */,
@@ -158,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2CA05C91D1FAC3700819527 /* down@2x.png in Resources */,
+				D2BD71FC1D22790000DAC218 /* display.gif in Resources */,
 				D2CA05B81D1F9C4B00819527 /* LaunchScreen.storyboard in Resources */,
 				D2CA05B51D1F9C4B00819527 /* Assets.xcassets in Resources */,
 				D2CA05B31D1F9C4B00819527 /* Main.storyboard in Resources */,
@@ -172,9 +186,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2CA05C51D1FA5AE00819527 /* UIView+AutoLayout.m in Sources */,
-				D2CA05B01D1F9C4B00819527 /* ViewController.m in Sources */,
+				D2CA05B01D1F9C4B00819527 /* Item1ViewController.m in Sources */,
 				D2CA05C21D1F9C7200819527 /* YCDropDownMenu.m in Sources */,
+				D2BD71FA1D22618D00DAC218 /* Item3ViewController.m in Sources */,
 				D2CA05AD1D1F9C4B00819527 /* AppDelegate.m in Sources */,
+				D2BD71F71D22616400DAC218 /* Item2ViewController.m in Sources */,
 				D2CA05AA1D1F9C4B00819527 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +340,7 @@
 				D2CA05BE1D1F9C4B00819527 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
